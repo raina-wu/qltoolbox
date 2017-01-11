@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>qlToolTabWidget</class>
+ <widget class="QTabWidget" name="qlToolTabWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>381</width>
+    <height>525</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>QL Tool Box</string>
+  </property>
+  <property name="currentIndex">
+   <number>0</number>
+  </property>
+  <widget class="QWidget" name="mapToolTab">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>200</height>
+    </size>
+   </property>
+   <attribute name="title">
+    <string>Map Tool</string>
+   </attribute>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QComboBox" name="qlObjectComboBox">
+          <item>
+           <property name="text">
+            <string>t</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>w</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="mapListWidget">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::ExtendedSelection</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="showPaintedCheckBox">
+          <property name="toolTip">
+           <string>Only show painted maps.</string>
+          </property>
+          <property name="text">
+           <string>Show Painted</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QPushButton" name="paintMapButton">
+          <property name="toolTip">
+           <string>Select one map in the list and click to activate paint tool.</string>
+          </property>
+          <property name="text">
+           <string>Paint Map</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="importMapButton">
+          <property name="toolTip">
+           <string>Select multiple maps in the list to import map from local file.</string>
+          </property>
+          <property name="text">
+           <string>Import Map</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="exportMapButton">
+          <property name="toolTip">
+           <string>Select multiple maps in the list to export map to local file.</string>
+          </property>
+          <property name="text">
+           <string>Export Map</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="normalizeMapButton">
+          <property name="toolTip">
+           <string>Normalize selected maps while keeping the effect.</string>
+          </property>
+          <property name="text">
+           <string>Normalize Map</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QPushButton" name="copyButton">
+            <property name="toolTip">
+             <string>Select and copy one map in the list.</string>
+            </property>
+            <property name="text">
+             <string>Copy</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pasteButton">
+            <property name="toolTip">
+             <string>Select one map in the list to paste the copied map to.</string>
+            </property>
+            <property name="text">
+             <string>Paste</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QComboBox" name="mirrorAxisComboBox">
+            <property name="toolTip">
+             <string>Axis to mirror along.</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>X</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Y</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Z</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="mirrorDirCheckBox">
+            <property name="toolTip">
+             <string>Mirror from positive to negative along selected axis.</string>
+            </property>
+            <property name="text">
+             <string>+ to -</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="mirrorMapButton">
+          <property name="toolTip">
+           <string>Select and mirror multiple maps in the list.</string>
+          </property>
+          <property name="text">
+           <string>Mirror Map</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="utilitiesTab">
+   <attribute name="title">
+    <string>Utilities</string>
+   </attribute>
+   <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>50</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="title">
+         <string>Select</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QPushButton" name="selectSolverButton">
+           <property name="text">
+            <string>Solver</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectClothNodeButton">
+           <property name="text">
+            <string>ClothNode</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectInMeshButton">
+           <property name="text">
+            <string>InMesh</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectOutMeshButton">
+           <property name="text">
+            <string>OutMesh</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectRestShapeButton">
+           <property name="text">
+            <string>RestShape</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectColliderNodeButton">
+           <property name="text">
+            <string>ColliderNode</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectColliderMeshButton">
+           <property name="text">
+            <string>ColliderMesh</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectColliderOffsetButton">
+           <property name="text">
+            <string>ColliderOffset</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectConstraintsButton">
+           <property name="text">
+            <string>Constraints</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="selectSpringsButton">
+           <property name="text">
+            <string>Springs</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="title">
+         <string>Setup Tools</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <widget class="QPushButton" name="buildHierarchyButton">
+           <property name="toolTip">
+            <string>Build character setup hierarchy with kxc's tool.</string>
+           </property>
+           <property name="text">
+            <string>Build Hierarchy</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="inmeshConnectButton">
+           <property name="toolTip">
+            <string>Select source mesh first, then target mesh to connect from outmesh to inmesh.</string>
+           </property>
+           <property name="text">
+            <string>Inmesh Connect</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="exportPropertyButton">
+           <property name="toolTip">
+            <string>Select cloth node/cloth outmesh to export material property to local file.</string>
+           </property>
+           <property name="text">
+            <string>Export Material Properties</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="importPropertyButton">
+           <property name="toolTip">
+            <string>Select cloth node/cloth outmesh to load material property from local file.</string>
+           </property>
+           <property name="text">
+            <string>Import Material Properties</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="title">
+         <string>Shot Tools</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <item>
+          <widget class="QPushButton" name="autoRestMeshButton">
+           <property name="toolTip">
+            <string>kxc's auto restmesh tool.</string>
+           </property>
+           <property name="text">
+            <string>Auto RestMesh</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="updateInitialStatesButton">
+           <property name="toolTip">
+            <string>Select initialState mesh group/object first, then out mesh group/object. Matching is based on vertex count.</string>
+           </property>
+           <property name="text">
+            <string>Update InitialStates</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="truncateCacheButton">
+           <property name="text">
+            <string>Truncate Cache</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="clearCacheButton">
+           <property name="text">
+            <string>Clear Cache</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="Line" name="line_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="cameraZoomButton">
+           <property name="toolTip">
+            <string>Bin Chen's camera zoom tool.</string>
+           </property>
+           <property name="text">
+            <string>Camera Zoom</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="alembicImportButton">
+           <property name="toolTip">
+            <string>kxc's alembic import tool.</string>
+           </property>
+           <property name="text">
+            <string>Alembic Import</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="blendCacheTab">
+   <attribute name="title">
+    <string>cache blend</string>
+   </attribute>
+   <layout class="QVBoxLayout" name="verticalLayout_7">
+    <item>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="columnCount">
+       <number>2</number>
+      </property>
+      <row>
+       <property name="text">
+        <string>qlCache1</string>
+       </property>
+      </row>
+      <column>
+       <property name="text">
+        <string>file path</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>notes</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="loadCacheButton">
+      <property name="toolTip">
+       <string>Select cloth out mesh to create new mesh with anther cache version.</string>
+      </property>
+      <property name="text">
+       <string>duplicate mesh and load cache</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="createMeshMixerButton">
+      <property name="toolTip">
+       <string>Select out meshes(with different cache versions) to create cache blend.</string>
+      </property>
+      <property name="text">
+       <string>create meshMixer</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="comboBox"/>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>weight1</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSlider" name="horizontalSlider">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="bakeMeshButton">
+      <property name="statusTip">
+       <string>Select meshMixer node. Bake blended cache to local cache files.</string>
+      </property>
+      <property name="text">
+       <string>bake mesh per frame</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="deleteMeshMixerButton">
+      <property name="toolTip">
+       <string>Delete meshMixer.</string>
+      </property>
+      <property name="text">
+       <string>delete meshMixer</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
