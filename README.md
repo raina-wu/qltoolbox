@@ -18,5 +18,4 @@ import qltoolbox
 ```
 
 ## Features
-- attribute map tool
-- other utilities
+
