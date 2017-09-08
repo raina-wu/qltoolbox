@@ -265,24 +265,24 @@ class QLToolBoxUI(QWidget):
 
 
     def _doExportMaterialProperty(self):
-        sel = pm.ls(sl=True, type=["transform", "mesh", "qlCloth"])
+        sel = pm.ls(sl=True, type=["transform", "mesh", "qlClothShape"])
         if not sel or not qlutils.getQLClothNode(sel[0]):
             pm.warning("Please select one cloth object to export material property.")
             return None
 
         filePath = pm.fileDialog2(fileFilter="*.property", dialogStyle=2)
         if filePath:
-            qlutils.exportMaterialProperties(filePath, sel[0])
+            qlutils.exportMaterialProperties(filePath[0], sel[0])
 
 
     def _doImportMaterialProperty(self):
-        sel = pm.ls(sl=True, type=["transform", "mesh", "qlCloth"])
+        sel = pm.ls(sl=True, type=["transform", "mesh", "qlClothShape"])
         if not sel or not qlutils.getQLClothNode(sel[0]):
             pm.warning("Please select one cloth object to import material property.")
             return None
         filePath = pm.fileDialog2(fileFilter="*.property", dialogStyle=2, fileMode=1)
         if filePath:
-            qlutils.importMaterialProperties(filePath, sel[0])
+            qlutils.importMaterialProperties(filePath[0], sel[0])
 
 
     def _doInmeshConnect(self):

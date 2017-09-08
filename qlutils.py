@@ -454,10 +454,12 @@ def exportMaterialProperties(filePath, target):
 
     outAttrs = {}
     for attrName in materialProperties:
-        targetAttr = "{0}.{1}".format(target.name(), attrName)
-        outAttrs[attrName] = (pm.getAttr(targetAttr),
-                              pm.getAttr(targetAttr, type=True))
-        print outAttrs[attrName]
+        try:
+            targetAttr = "{0}.{1}".format(target.name(), attrName)
+            outAttrs[attrName] = (pm.getAttr(targetAttr),
+                                  pm.getAttr(targetAttr, type=True))
+        except:
+            continue
 
     f = open(filePath, 'w')
     f.write(json.dumps(outAttrs, indent=2))
