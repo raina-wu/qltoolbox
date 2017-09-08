@@ -6,8 +6,6 @@ import maya.mel as mel
 import os
 import qlutils
 import mayautils
-import cameratools
-# import qltoolboxui
 try:
     from PySide2.QtCore import *
     from PySide2.QtGui import *
@@ -21,7 +19,7 @@ except ImportError:
     from PySide import __version__
     from shiboken import wrapInstance
 
-map(reload,[qlutils, mayautils, cameratools])
+map(reload,[qlutils, mayautils])
 
 mayaMainWindowPtr = omui.MQtUtil.mainWindow()
 mayaMainWindow = wrapInstance(long(mayaMainWindowPtr), QWidget)
@@ -72,6 +70,7 @@ class QLToolBoxUI(QWidget):
         # map tool tab
         self._updateQLObjComboBox()
         self.ui.paintMapButton.clicked.connect(self._setMapPaintContext)
+        self.ui.resetMapButton.clicked.connect(self._doResetMap)
         self.ui.exportMapButton.clicked.connect(self._doExportMap)
         self.ui.importMapButton.clicked.connect(self._doImportMap)
         self.ui.normalizeMapButton.clicked.connect(self._doNormalizeMap)
@@ -118,6 +117,17 @@ class QLToolBoxUI(QWidget):
         #     if item.checkState() == Qt.Checked:
         #         attrList.append(item.text())
         return attrList
+
+    def _doResetMap(self):
+        attrs = self._getSelectedMapAttrs()
+        if not attrs or QMessageBox.question(self, "Reset Map",
+                             "Reset the selected maps?",
+                             QMessageBox.Ok,
+                             QMessageBox.Cancel) == QMessageBox.Cancel:
+            return None
+        qlutils.resetMap(self._getCurrentQLObject(), attrs)
+        self._setMapPaintContext()
+        self._updateMapList()
 
     def _doExportMap(self):
         target = self._getCurrentQLObject()
@@ -223,7 +233,7 @@ class QLToolBoxUI(QWidget):
             QListWidgetItem(attr, mapList)
 
         # clear copied map value
-        self._copiedMapValue = []
+        # self._copiedMapValue = []
 
     def _doCopyMap(self):
         target = self._getCurrentQLObject()
@@ -329,7 +339,8 @@ class QLToolBoxUI(QWidget):
         pass
 
     def _doCameraZoom(self):
-        cameratools.CbCamCrop()
+        pass
+        # cameratools.CbCamCrop()
 
 
     def _doClearCache(self):

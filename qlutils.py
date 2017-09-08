@@ -68,6 +68,20 @@ materialProperties = [
                         'hysteresisName'
                         ]
 
+def resetMap(target, attrList=None):
+    """
+    reset maps
+    :param target: `PyNode` qualoth node which the maps belong to
+    :param attrList: `list` list of map attributes
+    :return:
+    """
+    attrList = mapAttrs if not attrList else attrList
+    for attr in attrList:
+        mapValues = pm.getAttr(target.name()+"."+attr)
+        pm.setAttr(target.name()+"."+attr, [1.0]*len(mapValues))
+        pm.setAttr(target.name()+"."+attr+"Flag", False)
+
+
 def normalizeMap(target, attrList=None):
     """
     normalize map value
