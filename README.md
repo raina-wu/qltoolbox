@@ -16,5 +16,5 @@ import qltoolbox
  reload(qltoolbox)
  qltoolbox.show()
 ```
-- [demo video](https://vimeo.com/233767786/)
+- [demo video](https://vimeo.com/233767786/)  
 [![Demo Video](https://i.vimeocdn.com/video/655178214_100x75.jpg)](https://vimeo.com/233767786 "demo video")
